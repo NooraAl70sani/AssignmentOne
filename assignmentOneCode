@@ -1,0 +1,305 @@
+#Importing the libraries we need.
+from enum import Enum
+
+#The Gender class defines constants for different genders: female and male. It is an ENUM class.
+class Gender(Enum):
+    female = 'Female'
+    male = 'Male'
+
+#The TherminalNumber class defines constants for different terminal numbers: A, B, and C. It is an ENUM class.
+class TherminalNumber(Enum):
+    therminalA = 'A'
+    therminalB = 'B'
+    therminalC = 'C'
+
+#The SeatNumber class defines constants for different seat numbers: 09A, 09B, and 09C. It is an ENUM class.
+class SeatNumber(Enum):
+    rowOne = '09A'
+    rowTwo = '09B'
+    rowThree = '09C'
+
+#The GateNumber class defines constants for different gate numbers: 01, 02, and 03. It is an ENUM class.
+class GateNumber(Enum):
+    gateOne = '01'
+    gateTwo = '02'
+    gateThree = '03'
+
+#The Person class represents a basic entity with attributes like first name, last name, phone number, and gender..
+class Person:
+    def __init__(self, firstName='', lastName='', phoneNumber='', gender=Gender):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.gender = Gender(gender)
+# Getters and Setters.
+    def getFirstName(self):
+        return self.firstName
+
+    def setFirstName(self, firstName):
+        self.firstName = firstName
+
+    def getLastName(self):
+        return self.lastName
+
+    def setLastName(self, lastName):
+        self.lastName = lastName
+
+    def getPhoneNumber(self):
+        return self.phoneNumber
+
+    def setPhoneNumber(self, phoneNumber):
+        self.phoneNumber = phoneNumber
+
+    def getGender(self):
+        return self.gender
+
+    def setGender(self, gender):
+        self.gender = Gender(gender)
+
+# The Passenger class is a subclass of Person
+class Passenger(Person):
+    def __init__(self, firstName='', lastName='', phoneNumber='', gender=Gender, passengerID=0, username='',
+                 password=''):
+        super().__init__(firstName, lastName, phoneNumber, gender)
+        self.passengerID = passengerID
+        self.username = username
+        self.password = password
+
+# Setters and getters
+    def getPassangerID(self):
+        return self.passengerID
+
+    def setPassangerID(self, passengerID):
+        self.passengerID = passengerID
+
+    def getUsername(self):
+        return self.username
+
+    def setUsername(self, username):
+        self.username = username
+
+    def getPassword(self):
+        return self.password
+
+    def setPassword(self, password):
+        self.password = password
+
+    def logIn(self):
+        # Perform login, it would check through a database and search for mathching username and its password through a dictonary.
+        pass
+
+    def changePassword(self, newPassword):
+        # Change the passenger's password if the passanger forgets his detail credentials.
+        pass
+
+    def changePhoneNumber(self, newPhoneNumber):
+        # Change the passenger's phone number if the passanger needs to change his phone number
+        pass
+
+    def enterPaymentDetails(self, paymentDetails):
+        # Enter payment details for the transaction,
+        pass
+
+    def modifyBoardingTicketDetails(self, newDetails):
+        # Modify the details of the passenger's boarding ticket.
+        pass
+
+#The BoardingTicket class represents the details of the boarding ticket.
+class BoardingTicket:
+    def __init__(self, flightFrom='', flightTo='', flightNumber='', flightDate='', flightTime='', gateNumber=GateNumber,
+                 boardingTill='', seatNumber=SeatNumber, electronicTicket=0, arrivalTime='',
+                 therminalNumber=TherminalNumber):
+        self.flightFrom = flightFrom
+        self.flightTo = flightTo
+        self.flightNumber = flightNumber
+        self.flightDate = flightDate
+        self.flightTime = flightTime
+        self.gateNumber = GateNumber(gateNumber)
+        self.boardingTill = boardingTill
+        self.seatNumber = SeatNumber(seatNumber)
+        self.electronicTicket = electronicTicket
+        self.arrivalTime = arrivalTime
+        self.therminalNumber = therminalNumber
+
+#Setters and Getters.
+    def getFlightFrom(self):
+        return self.flightFrom
+
+    def setFlightFrom(self, flightFrom):
+        self.flightFrom = flightFrom
+
+    def getFlightTo(self):
+        return self.flightTo
+
+    def setFlightTo(self, flightTo):
+        self.flightTo = flightTo
+
+    def getFlightNumber(self):
+        return self.flightNumber
+
+    def setFlightNumber(self, flightNumber):
+        self.flightNumber = flightNumber
+
+    def getFlightDate(self):
+        return self.flightDate
+
+    def setFlightDate(self, flightDate):
+        self.flightDate = flightDate
+
+    def getFlightTime(self):
+        return self.flightTime
+
+    def setFlightTime(self, flightTime):
+        self.flightTime = flightTime
+
+    def getGateNumber(self):
+        return self.gateNumber
+
+    def setGateNumber(self, gateNumber):
+        self.gateNumber = GateNumber(gateNumber)
+
+    def setBoardingTill(self, boardingTill):
+        self.boardingTill = boardingTill
+
+    def getBoardingTill(self):
+        return self.boardingTill
+
+    def setSeatNumber(self, seatNumber):
+        self.seatNumber = SeatNumber(seatNumber)
+
+    def getSeatNumber(self):
+        return self.seatNumber
+
+    def setElectronicTicket(self, electronicTicket):
+        self.electronicTicket = electronicTicket
+
+    def getElectronicTicket(self):
+        return self.electronicTicket
+
+    def setArrivalTime(self, arrivalTime):
+        self.arrivalTime = arrivalTime
+
+    def getArrivalTime(self):
+        return self.arrivalTime
+
+    def setTerminalNumber(self, terminalNumber):
+        self.terminalNumber = terminalNumber
+
+    def getTerminalNumber(self):
+        return self._terminalNumber
+
+    def generateBoardingTicket(self):
+        # Generate a boarding ticket for the passenger
+        pass
+
+    def markBoarded(self):
+        # Mark the passenger as boarded
+        pass
+
+#Displaying all the information on the ticket.
+    def displayBoardingTicket(self):
+        print(f"Boarding Ticket Details:")
+        print(f"Flight: {self.flightFrom} to {self.flightTo}")
+        print(f"Flight Number: {self.flightNumber}")
+        print(f"Date: {self.flightDate}, Time: {self.flightTime}")
+        print(f"Gate: {self.gateNumber.value}, Terminal: {self.therminalNumber.value}")
+        print(f"Seat: {self.seatNumber.value}, Boarding Till: {self.boardingTill}")
+        print(f"Electronic Ticket: {self.electronicTicket}")
+        print(f"Arrival Time: {self.arrivalTime}")
+
+#The CheckInSystem class manages the check-in process
+class CheckInSystem:
+    def __init__(self, checkInStatus=bool, checkInStartTime='', checkInEndTime='', baggageCheckStatus=bool,
+                 isPetAvailable=bool):
+        self.checkInStatus = checkInStatus
+        self.checkInStartTime = checkInStartTime
+        self.checkInEndTime = checkInEndTime
+        self.baggageCheckStatus = baggageCheckStatus
+        self.isPetAvailable = isPetAvailable
+
+#Setters and getters
+    def setCheckInStatus(self, checkInStatus):
+        self.checkInStatus = checkInStatus
+
+    def getCheckInStatus(self):
+        return self.checkInStatus
+
+    def setCheckInStartTime(self, checkInStartTime):
+        self.checkInStartTime = checkInStartTime
+
+    def getCheckInStartTime(self):
+        return self.checkInStartTime
+
+    def setCheckInEndTime(self, checkInEndTime):
+        self.checkInEndTime = checkInEndTime
+
+    def getCheckInEndTime(self):
+        return self.checkInEndTime
+
+    def setBaggageCheckStatus(self, baggageCheckStatus):
+        self.baggageCheckStatus = baggageCheckStatus
+
+    def getBaggageCheckStatus(self):
+        return self.baggageCheckStatus
+
+    def setIsPetAvailable(self, isPetAvailable):
+        self.isPetAvailable = isPetAvailable
+
+    def getIsPetAvailable(self):
+        return self.isPetAvailable
+
+    def validateIdentification(self):
+        # Validates the identification of the passenger.
+        pass
+
+    def verifySecurityThreats(self):
+        # Verifys any security threats over an the passenger based on a 'wanted' list data-base.
+        pass
+
+    def confirmCheckIn(self):
+        # Confirms the check-in process for the passenger and that the passanger is ready to go!.
+        pass
+
+#Displaying all the information.
+    def displayCheckInStatus(self):
+        print("Check-In System Status:")
+        print(f"Check-In Status: {self.checkInStatus}")
+        print(f"Check-In Time: {self.checkInStartTime} to {self.checkInEndTime}")
+        print(f"Baggage Check Status: {self.baggageCheckStatus}")
+        print(f"Pet Service: {self.isPetAvailable}")
+
+
+# Creating a BoardingTicket object
+boardingTicket = BoardingTicket(
+    flightFrom='Chigago ORD',
+    flightTo='New York JFK',
+    flightNumber='NA4321',
+    flightDate='06 DEC 20',
+    flightTime='11:40',
+    gateNumber=GateNumber.gateThree,
+    boardingTill='11:20',
+    seatNumber=SeatNumber.rowOne,
+    electronicTicket=629,
+    arrivalTime='12:30',
+    therminalNumber=TherminalNumber.therminalB
+)
+
+# Creating a CheckInSystem object
+checkInSystem = CheckInSystem(
+    checkInStatus=True,
+    checkInStartTime='10:00',
+    checkInEndTime='11:30',
+    baggageCheckStatus=True,
+    isPetAvailable=False
+)
+
+# Using the object functions to display boarding pass details and the check in status
+boardingTicket.displayBoardingTicket()
+print('---')
+checkInSystem.displayCheckInStatus()
+print('---')
+boardingTicket.setBoardingTill('12:00')
+boardingTillValue = boardingTicket.getBoardingTill()
+print('The boarding till value is :', boardingTillValue)
+print('---')
+boardingTicket.displayBoardingTicket()
